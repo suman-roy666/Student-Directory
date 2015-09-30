@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "StudentDirectory.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    StudentDirectory *internationalSchoolDirectory = [[StudentDirectory alloc] init];
+    
+    int directoryIndex = 0;
+}
+
+- (IBAction)nextButtonTapHandler:(id)sender {
+}
+
+
+- (IBAction)previousButtonTapHandler:(id)sender {
 }
 
 - (void)didReceiveMemoryWarning {

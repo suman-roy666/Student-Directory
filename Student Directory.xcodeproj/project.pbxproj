@@ -14,6 +14,7 @@
 		11E8AD2A1BBBC0300022556A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11E8AD291BBBC0300022556A /* Images.xcassets */; };
 		11E8AD2D1BBBC0300022556A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E8AD2B1BBBC0300022556A /* LaunchScreen.xib */; };
 		11E8AD391BBBC0300022556A /* Student_DirectoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AD381BBBC0300022556A /* Student_DirectoryTests.m */; };
+		11E8AD441BBBC2100022556A /* StudentDirectory.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AD431BBBC2100022556A /* StudentDirectory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		11E8AD321BBBC0300022556A /* Student DirectoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Student DirectoryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11E8AD371BBBC0300022556A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11E8AD381BBBC0300022556A /* Student_DirectoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Student_DirectoryTests.m; sourceTree = "<group>"; };
+		11E8AD421BBBC2100022556A /* StudentDirectory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentDirectory.h; sourceTree = "<group>"; };
+		11E8AD431BBBC2100022556A /* StudentDirectory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentDirectory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				11E8AD291BBBC0300022556A /* Images.xcassets */,
 				11E8AD2B1BBBC0300022556A /* LaunchScreen.xib */,
 				11E8AD1C1BBBC0300022556A /* Supporting Files */,
+				11E8AD421BBBC2100022556A /* StudentDirectory.h */,
+				11E8AD431BBBC2100022556A /* StudentDirectory.m */,
 			);
 			path = "Student Directory";
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11E8AD251BBBC0300022556A /* ViewController.m in Sources */,
+				11E8AD441BBBC2100022556A /* StudentDirectory.m in Sources */,
 				11E8AD221BBBC0300022556A /* AppDelegate.m in Sources */,
 				11E8AD1F1BBBC0300022556A /* main.m in Sources */,
 			);
