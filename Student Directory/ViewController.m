@@ -11,24 +11,66 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (weak, nonatomic) IBOutlet UIButton *previousButton;
+
 @end
 
-@implementation ViewController
+@implementation ViewController{
+    
+    StudentDirectory *internationalSchoolDirectory;
+    int directoryIndex;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    StudentDirectory *internationalSchoolDirectory = [[StudentDirectory alloc] init];
+    _previousButton.enabled = FALSE;
     
-    int directoryIndex = 0;
+    internationalSchoolDirectory = [[StudentDirectory alloc] init];
+    
+    directoryIndex = 0;
+    
+    NSDictionary *temporaryInstance = internationalSchoolDirectory.studentList[ directoryIndex];
+    
+    [ StudentDirectory displayStudent:temporaryInstance];
+    
+    if (  (directoryIndex+1) >=  internationalSchoolDirectory.studentList.count) {
+        
+        _nextButton.enabled = FALSE;
+    }
+    
 }
 
 - (IBAction)nextButtonTapHandler:(id)sender {
+    
+    _previousButton.enabled = TRUE;
+    
+    NSDictionary *temporaryInstance = internationalSchoolDirectory.studentList[++directoryIndex];
+    
+    [ StudentDirectory displayStudent:temporaryInstance];
+    
+    if (  (directoryIndex+1) >=  internationalSchoolDirectory.studentList.count) {
+        
+        _nextButton.enabled = FALSE;
+    }
+    
 }
 
 
 - (IBAction)previousButtonTapHandler:(id)sender {
+    
+    _nextButton.enabled = TRUE;
+    
+    NSDictionary *temporaryInstance = internationalSchoolDirectory.studentList[--directoryIndex];
+    
+    [ StudentDirectory displayStudent:temporaryInstance];
+    
+    if (  (directoryIndex-1) == -1) {
+        
+        _previousButton.enabled = FALSE;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

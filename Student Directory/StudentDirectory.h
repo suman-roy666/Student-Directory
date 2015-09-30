@@ -12,4 +12,6 @@
 
 @property NSArray *studentList;
 
++(void)displayStudent:(NSDictionary*) student;
+
 @end

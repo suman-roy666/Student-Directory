@@ -59,4 +59,12 @@
     return self;
 }
 
++(void) displayStudent:(NSDictionary*) student{
+    
+    NSLog(@"Name\t\t\t: %@",student[@"Name"]);
+    NSLog(@"Date of Birth\t: %@",student[@"DoB"]);
+    NSLog(@"GPA\t\t\t: %@",student[@"GPA"]);
+    
+}
+
 @end
