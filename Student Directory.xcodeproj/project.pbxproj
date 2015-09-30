@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11598D5D1BBC0B78005CDFCD /* leftArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 11598D5B1BBC0B78005CDFCD /* leftArrow.png */; };
+		11598D5E1BBC0B78005CDFCD /* Right Arrow Button.svg.med.png in Resources */ = {isa = PBXBuildFile; fileRef = 11598D5C1BBC0B78005CDFCD /* Right Arrow Button.svg.med.png */; };
 		11E8AD1F1BBBC0300022556A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AD1E1BBBC0300022556A /* main.m */; };
 		11E8AD221BBBC0300022556A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AD211BBBC0300022556A /* AppDelegate.m */; };
 		11E8AD251BBBC0300022556A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AD241BBBC0300022556A /* ViewController.m */; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11598D5B1BBC0B78005CDFCD /* leftArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftArrow.png; sourceTree = "<group>"; };
+		11598D5C1BBC0B78005CDFCD /* Right Arrow Button.svg.med.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Right Arrow Button.svg.med.png"; sourceTree = "<group>"; };
 		11E8AD191BBBC0300022556A /* Student Directory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Student Directory.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11E8AD1D1BBBC0300022556A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11E8AD1E1BBBC0300022556A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 		11E8AD1B1BBBC0300022556A /* Student Directory */ = {
 			isa = PBXGroup;
 			children = (
+				11598D5B1BBC0B78005CDFCD /* leftArrow.png */,
+				11598D5C1BBC0B78005CDFCD /* Right Arrow Button.svg.med.png */,
 				11E8AD201BBBC0300022556A /* AppDelegate.h */,
 				11E8AD211BBBC0300022556A /* AppDelegate.m */,
 				11E8AD231BBBC0300022556A /* ViewController.h */,
@@ -206,6 +212,8 @@
 			files = (
 				11E8AD281BBBC0300022556A /* Main.storyboard in Resources */,
 				11E8AD2D1BBBC0300022556A /* LaunchScreen.xib in Resources */,
+				11598D5D1BBC0B78005CDFCD /* leftArrow.png in Resources */,
+				11598D5E1BBC0B78005CDFCD /* Right Arrow Button.svg.med.png in Resources */,
 				11E8AD2A1BBBC0300022556A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +430,7 @@
 				11E8AD3E1BBBC0300022556A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		11E8AD3F1BBBC0300022556A /* Build configuration list for PBXNativeTarget "Student DirectoryTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +439,7 @@
 				11E8AD411BBBC0300022556A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
