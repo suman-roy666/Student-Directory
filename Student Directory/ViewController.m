@@ -14,6 +14,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UIButton *previousButton;
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateOfBirthLabel;
+@property (weak, nonatomic) IBOutlet UILabel *gpaLabel;
+
+
+
 @end
 
 @implementation ViewController{
@@ -34,7 +40,7 @@
     
     NSDictionary *temporaryInstance = internationalSchoolDirectory.studentList[ directoryIndex];
     
-    [ StudentDirectory displayStudent:temporaryInstance];
+    [ self setLabelValuesFrom: temporaryInstance];
     
     if (  (directoryIndex+1) >=  internationalSchoolDirectory.studentList.count) {
         
@@ -49,7 +55,8 @@
     
     NSDictionary *temporaryInstance = internationalSchoolDirectory.studentList[++directoryIndex];
     
-    [ StudentDirectory displayStudent:temporaryInstance];
+    
+    [ self setLabelValuesFrom: temporaryInstance];
     
     if (  (directoryIndex+1) >=  internationalSchoolDirectory.studentList.count) {
         
@@ -65,12 +72,21 @@
     
     NSDictionary *temporaryInstance = internationalSchoolDirectory.studentList[--directoryIndex];
     
-    [ StudentDirectory displayStudent:temporaryInstance];
+    [ self setLabelValuesFrom: temporaryInstance];
     
     if (  (directoryIndex-1) == -1) {
         
         _previousButton.enabled = FALSE;
     }
+}
+
+- (void)setLabelValuesFrom:(NSDictionary*) studentDetails{
+    
+    [ StudentDirectory displayStudent:studentDetails];
+    
+    [ self.nameLabel         setText:studentDetails[@"Name"] ];
+    [ self.dateOfBirthLabel  setText:studentDetails[@"DoB"] ];
+    [ self.gpaLabel          setText: [ studentDetails[@"GPA"] stringValue ] ];
 }
 
 - (void)didReceiveMemoryWarning {
