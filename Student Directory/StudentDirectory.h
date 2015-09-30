@@ -10,7 +10,16 @@
 
 @interface StudentDirectory : NSObject
 
+/**
+ *  An array that contains the information about the students. Each individual student's information is stores in the form of a dictionary item.
+ */
 @property NSArray *studentList;
+
+/**
+ *  A function to display the student details on the console
+ *
+ *  @param student The dictionary item containing the student information
+ */
 
 +(void)displayStudent:(NSDictionary*) student;
 
