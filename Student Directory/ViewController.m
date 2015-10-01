@@ -40,7 +40,7 @@
     
     NSDictionary *temporaryInstance = internationalSchoolDirectory.studentList[ directoryIndex];
     
-    [ self setLabelValuesFrom: temporaryInstance];
+    [ self setLabelTextFrom: temporaryInstance];
     
     if (  (directoryIndex+1) >=  internationalSchoolDirectory.studentList.count) {
         
@@ -56,7 +56,7 @@
     NSDictionary *temporaryInstance = internationalSchoolDirectory.studentList[++directoryIndex];
     
     
-    [ self setLabelValuesFrom: temporaryInstance];
+    [ self setLabelTextFrom: temporaryInstance];
     
     if (  (directoryIndex+1) >=  internationalSchoolDirectory.studentList.count) {
         
@@ -72,7 +72,7 @@
     
     NSDictionary *temporaryInstance = internationalSchoolDirectory.studentList[--directoryIndex];
     
-    [ self setLabelValuesFrom: temporaryInstance];
+    [ self setLabelTextFrom: temporaryInstance];
     
     if (  (directoryIndex-1) == -1) {
         
@@ -80,7 +80,7 @@
     }
 }
 
-- (void)setLabelValuesFrom:(NSDictionary*) studentDetails{
+- (void)setLabelTextFrom:(NSDictionary*) studentDetails{
     
     [ StudentDirectory displayStudent:studentDetails];
     
