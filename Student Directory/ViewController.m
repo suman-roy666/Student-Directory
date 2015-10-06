@@ -45,6 +45,7 @@
     if (  (directoryIndex+1) >=  internationalSchoolDirectory.studentList.count) {
         
         _nextButton.enabled = FALSE;
+        
     }
     
 }
@@ -61,6 +62,7 @@
     if (  (directoryIndex+1) >=  internationalSchoolDirectory.studentList.count) {
         
         _nextButton.enabled = FALSE;
+        
     }
     
 }
