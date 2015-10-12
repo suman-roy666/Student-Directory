@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StudentDirectory.h"
 
 @interface ViewController : UIViewController
 
+@property StudentDirectory* internationalSchoolDirectory;
 
 @end
 

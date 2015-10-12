@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "StudentDirectory.h"
+#import "AddStudentViewController.h"
 
 @interface ViewController ()
 
@@ -24,7 +25,6 @@
 
 @implementation ViewController{
     
-    StudentDirectory *internationalSchoolDirectory;
     int directoryIndex;
 }
 
@@ -34,19 +34,21 @@
     
     _previousButton.enabled = FALSE;
     
-    internationalSchoolDirectory = [[StudentDirectory alloc] init];
+    _internationalSchoolDirectory = [[StudentDirectory alloc] init];
     
     directoryIndex = 0;
     
-    NSDictionary *temporaryInstance = internationalSchoolDirectory.studentList[ directoryIndex];
+    NSDictionary *temporaryInstance = _internationalSchoolDirectory.studentList[ directoryIndex];
     
     [ self setLabelTextFrom: temporaryInstance];
     
-    if (  (directoryIndex+1) >=  internationalSchoolDirectory.studentList.count) {
+    if (  (directoryIndex+1) >=  _internationalSchoolDirectory.studentList.count) {
         
         _nextButton.enabled = FALSE;
         
     }
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:nil action:nil];
     
 }
 
@@ -54,12 +56,12 @@
     
     _previousButton.enabled = TRUE;
     
-    NSDictionary *temporaryInstance = internationalSchoolDirectory.studentList[++directoryIndex];
+    NSDictionary *temporaryInstance = _internationalSchoolDirectory.studentList[++directoryIndex];
     
     
     [ self setLabelTextFrom: temporaryInstance];
     
-    if (  (directoryIndex+1) >=  internationalSchoolDirectory.studentList.count) {
+    if (  (directoryIndex+1) >=  _internationalSchoolDirectory.studentList.count) {
         
         _nextButton.enabled = FALSE;
         
@@ -72,7 +74,7 @@
     
     _nextButton.enabled = TRUE;
     
-    NSDictionary *temporaryInstance = internationalSchoolDirectory.studentList[--directoryIndex];
+    NSDictionary *temporaryInstance = _internationalSchoolDirectory.studentList[--directoryIndex];
     
     [ self setLabelTextFrom: temporaryInstance];
     
@@ -95,5 +97,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if([segue.identifier isEqualToString:@"addStudentSegue"]){
+        
+        AddStudentViewController *controller = (AddStudentViewController *)segue.destinationViewController;
+        controller.temporaryDirectory = self.internationalSchoolDirectory;
+    }
+}
+
 
 @end

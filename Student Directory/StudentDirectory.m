@@ -7,6 +7,9 @@
 //
 
 #import "StudentDirectory.h"
+#import "NSDictionary+JSONHandler.h"
+
+//#define JSON_OUTPUT
 
 @implementation StudentDirectory
 
@@ -47,24 +50,47 @@
                                    @"GPA"  : [ NSNumber numberWithFloat:7.00 ]
                                    };
         
-        _studentList = @[
+        _studentList = [ NSMutableArray arrayWithArray: @[
                          student1,
                          student2,
                          student3,
                          student4,
                          student5
-                         ];
+                         ] ];
+        
+        [ student1 convertToJSON];
         
     }
+    
     return self;
 }
 
 +(void) displayStudent:(NSDictionary*) student{
     
+#ifndef JSON_OUTPUT
+    
     NSLog(@"Name\t\t\t: %@",student[@"Name"]);
     NSLog(@"Date of Birth\t: %@",student[@"DoB"]);
     NSLog(@"GPA\t\t\t: %@",student[@"GPA"]);
     
+#else
+    
+    NSLog(@"%@", [ student convertToJSON ] );
+    
+#endif
+    
 }
+
+-(void)addToListStudent: (NSString*) name DoB: (NSString*) DoB GPA: (NSNumber*) GPA{
+    
+    NSDictionary *student = @{
+                               @"Name" : name,
+                               @"DoB"  : DoB,
+                               @"GPA"  : GPA
+                               };
+    
+    [ _studentList addObject:student ];
+}
+
 
 @end

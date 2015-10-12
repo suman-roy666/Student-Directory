@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11085D221BC7CDAD00CB2941 /* NSDictionary+JSONHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 11085D211BC7CDAD00CB2941 /* NSDictionary+JSONHandler.m */; };
 		11598D5D1BBC0B78005CDFCD /* leftArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 11598D5B1BBC0B78005CDFCD /* leftArrow.png */; };
 		11598D5E1BBC0B78005CDFCD /* Right Arrow Button.svg.med.png in Resources */ = {isa = PBXBuildFile; fileRef = 11598D5C1BBC0B78005CDFCD /* Right Arrow Button.svg.med.png */; };
+		11D9CF2C1BC7E9C700E4EF1A /* AddStudentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11D9CF2B1BC7E9C700E4EF1A /* AddStudentViewController.m */; };
 		11E8AD1F1BBBC0300022556A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AD1E1BBBC0300022556A /* main.m */; };
 		11E8AD221BBBC0300022556A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AD211BBBC0300022556A /* AppDelegate.m */; };
 		11E8AD251BBBC0300022556A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11E8AD241BBBC0300022556A /* ViewController.m */; };
@@ -30,8 +32,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11085D201BC7CDAD00CB2941 /* NSDictionary+JSONHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JSONHandler.h"; sourceTree = "<group>"; };
+		11085D211BC7CDAD00CB2941 /* NSDictionary+JSONHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JSONHandler.m"; sourceTree = "<group>"; };
 		11598D5B1BBC0B78005CDFCD /* leftArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leftArrow.png; sourceTree = "<group>"; };
 		11598D5C1BBC0B78005CDFCD /* Right Arrow Button.svg.med.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Right Arrow Button.svg.med.png"; sourceTree = "<group>"; };
+		11D9CF2A1BC7E9C700E4EF1A /* AddStudentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddStudentViewController.h; sourceTree = "<group>"; };
+		11D9CF2B1BC7E9C700E4EF1A /* AddStudentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddStudentViewController.m; sourceTree = "<group>"; };
 		11E8AD191BBBC0300022556A /* Student Directory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Student Directory.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11E8AD1D1BBBC0300022556A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11E8AD1E1BBBC0300022556A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -100,6 +106,8 @@
 				11E8AD1C1BBBC0300022556A /* Supporting Files */,
 				11E8AD421BBBC2100022556A /* StudentDirectory.h */,
 				11E8AD431BBBC2100022556A /* StudentDirectory.m */,
+				11085D201BC7CDAD00CB2941 /* NSDictionary+JSONHandler.h */,
+				11085D211BC7CDAD00CB2941 /* NSDictionary+JSONHandler.m */,
 			);
 			path = "Student Directory";
 			sourceTree = "<group>";
@@ -109,6 +117,8 @@
 			children = (
 				11E8AD1D1BBBC0300022556A /* Info.plist */,
 				11E8AD1E1BBBC0300022556A /* main.m */,
+				11D9CF2A1BC7E9C700E4EF1A /* AddStudentViewController.h */,
+				11D9CF2B1BC7E9C700E4EF1A /* AddStudentViewController.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -232,8 +242,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11D9CF2C1BC7E9C700E4EF1A /* AddStudentViewController.m in Sources */,
 				11E8AD251BBBC0300022556A /* ViewController.m in Sources */,
 				11E8AD441BBBC2100022556A /* StudentDirectory.m in Sources */,
+				11085D221BC7CDAD00CB2941 /* NSDictionary+JSONHandler.m in Sources */,
 				11E8AD221BBBC0300022556A /* AppDelegate.m in Sources */,
 				11E8AD1F1BBBC0300022556A /* main.m in Sources */,
 			);

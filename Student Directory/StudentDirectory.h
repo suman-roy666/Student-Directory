@@ -13,7 +13,7 @@
 /**
  *  An array that contains the information about the students. Each individual student's information is stores in the form of a dictionary item.
  */
-@property NSArray *studentList;
+@property (readonly) NSMutableArray *studentList;
 
 /**
  *  A function to display the student details on the console
@@ -22,5 +22,15 @@
  */
 
 +(void)displayStudent:(NSDictionary*) student;
+
+/**
+ *  Used to add elements to the studentList Mutable Array. This function is the only way to add elements to the array.
+ *
+ *  @param name The name of the student to be added
+ *  @param DoB  The studednt's date of birth in DD/MM/YYYY in a NSString
+ *  @param GPA  The student's GPA as a NSNumber
+ */
+
+-(void)addToListStudent: (NSString*) name DoB: (NSString*) DoB GPA: (NSNumber*) GPA;
 
 @end
