@@ -14,7 +14,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-       
+    
 }
 
 - (IBAction)addStudentDetailsButtonHandler:(id)sender {
@@ -28,9 +28,25 @@
     tempDoB = [ self.dobTextBox text];
     tempgpa = [  [self.gpaTextBox text ] stringByTrimmingCharactersInSet:[ NSCharacterSet whitespaceCharacterSet]];
     
-    [ self.temporaryDirectory addToListStudent:tempName DoB:tempDoB GPA:[ gpaConverter numberFromString:tempgpa ] ];
-    
-    [ self.navigationController popViewControllerAnimated:YES ];
+    if ( [ tempName isEqualToString:@"" ] || tempName == nil ) {
+        
+        [ self showErrorAlert];
+        
+    } else {
+        
+        [ self.temporaryDirectory addToListStudent:tempName DoB:tempDoB GPA:[ gpaConverter numberFromString:tempgpa ] ];
+        
+        [ self.navigationController popViewControllerAnimated:YES ];
+    }
 }
 
+-(void) showErrorAlert
+{
+    UIAlertView *ErrorAlert = [[UIAlertView alloc] initWithTitle:@""
+                                                         message:@"All Fields are mandatory." delegate:nil
+                                               cancelButtonTitle:@"OK"
+                                               otherButtonTitles:nil, nil];
+    [ErrorAlert show];
+    //[ErrorAlert release];
+}
 @end
