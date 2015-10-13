@@ -73,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		110DF2201BCCCD7E007C718D /* Extension Classes */ = {
+			isa = PBXGroup;
+			children = (
+				11085D201BC7CDAD00CB2941 /* NSDictionary+JSONHandler.h */,
+				11085D211BC7CDAD00CB2941 /* NSDictionary+JSONHandler.m */,
+			);
+			name = "Extension Classes";
+			sourceTree = "<group>";
+		};
 		11E8AD101BBBC0300022556A = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +103,7 @@
 		11E8AD1B1BBBC0300022556A /* Student Directory */ = {
 			isa = PBXGroup;
 			children = (
+				110DF2201BCCCD7E007C718D /* Extension Classes */,
 				11598D5B1BBC0B78005CDFCD /* leftArrow.png */,
 				11598D5C1BBC0B78005CDFCD /* Right Arrow Button.svg.med.png */,
 				11E8AD201BBBC0300022556A /* AppDelegate.h */,
@@ -106,8 +116,6 @@
 				11E8AD1C1BBBC0300022556A /* Supporting Files */,
 				11E8AD421BBBC2100022556A /* StudentDirectory.h */,
 				11E8AD431BBBC2100022556A /* StudentDirectory.m */,
-				11085D201BC7CDAD00CB2941 /* NSDictionary+JSONHandler.h */,
-				11085D211BC7CDAD00CB2941 /* NSDictionary+JSONHandler.m */,
 			);
 			path = "Student Directory";
 			sourceTree = "<group>";

@@ -9,7 +9,7 @@
 #import "StudentDirectory.h"
 #import "NSDictionary+JSONHandler.h"
 
-//#define JSON_OUTPUT
+#define JSON_OUTPUT
 
 @implementation StudentDirectory
 

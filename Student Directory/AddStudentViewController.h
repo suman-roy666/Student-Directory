@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "StudentDirectory.h"
 
-@interface AddStudentViewController : UIViewController
+@interface AddStudentViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *studentNameTextBox;
 @property (weak, nonatomic) IBOutlet UITextField *dobTextBox;
 @property (weak, nonatomic) IBOutlet UITextField *gpaTextBox;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UIToolbar *datePickerDone;
 @property StudentDirectory *temporaryDirectory;
 
 @end
