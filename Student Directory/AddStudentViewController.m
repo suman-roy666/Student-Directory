@@ -32,8 +32,8 @@
     
     gpaConverter.numberStyle = NSNumberFormatterDecimalStyle;
     
-    tempName = [ self.studentNameTextBox text];
-    tempDoB = [ self.dobTextBox text];
+    tempName = [[ self.studentNameTextBox text] stringByTrimmingCharactersInSet:[ NSCharacterSet whitespaceCharacterSet ]];
+    tempDoB = [[ self.dobTextBox text] stringByTrimmingCharactersInSet:[ NSCharacterSet whitespaceCharacterSet] ];
     tempgpa = [  [self.gpaTextBox text ] stringByTrimmingCharactersInSet:[ NSCharacterSet whitespaceCharacterSet]];
     
     BOOL isAnyTextFieldEmpty = (
@@ -47,9 +47,7 @@
         
         [ self showErrorAlertWithMessage: @"All field are mandatory" ];
         
-    }
-    
-    if ( ![ self validateInputWithString:tempgpa] ){
+    } else if ( ![ self validateInputWithString:tempgpa withPattern:@"(^[0-9][.][0-9][0-9]?)$|10[.]?[0]{0,2}$"] ){
         
         [ self showErrorAlertWithMessage: @"GPA format incorrect" ];
         
@@ -108,21 +106,26 @@
 
 #pragma mark - GPA text field constaint finctions
 
-- (BOOL)validateInputWithString:(NSString *)aString
+- (BOOL)validateInputWithString:(NSString *)aString withPattern:(NSString*) pattern
 {
-    NSString * const regularExpression = @"(^[0-9][.][0-9][0-9]?)|10[.]?[0]{0,2}";
     NSError *error = NULL;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regularExpression
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:&error];
+    NSAssert(regex, @"Unable to create regular expression");
+    
     if (error) {
         NSLog(@"error %@", error);
     }
     
-    NSUInteger numberOfMatches = [regex numberOfMatchesInString:aString
-                                                        options:0
-                                                          range:NSMakeRange(0, [aString length])];
-    return numberOfMatches > 0;
+    NSRange textRange = NSMakeRange(0, aString.length);
+    
+    NSRange matchRange = [regex rangeOfFirstMatchInString:aString options:NSMatchingReportProgress range:textRange];
+    
+    if (matchRange.location != NSNotFound)
+        return YES;
+    
+    return NO;
 }
 
 -(void) showErrorAlertWithMessage: (NSString*)errorMessage
