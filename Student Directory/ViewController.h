@@ -13,6 +13,7 @@
 
 @property StudentDirectory* internationalSchoolDirectory;
 @property (weak, nonatomic) IBOutlet UITableView *studentDetailsTableView;
+@property NSNumber *someValue;
 
 @end
 

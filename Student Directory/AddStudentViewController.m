@@ -23,6 +23,19 @@
     
     _gpaTextBox.keyboardType = UIKeyboardTypeDecimalPad;
     
+    NSLog(@"%@",[ NSNumber numberWithInteger: _directoryIndex ]);
+    
+    if ( _directoryIndex != nil  ) {
+        
+        [ self.studentNameTextBox setValue:[ _temporaryDirectory.studentList[_directoryIndex] valueForKey:@"Name"] forKey:@"text"];
+        //[ self.dobTextBox setValue:[ _temporaryDirectory.studentList[_directoryIndex] valueForKey:@"DoB"] forKey:@"text"];
+        
+        NSString *gpa= [ NSString stringWithFormat:@"%@", [ _temporaryDirectory.studentList[_directoryIndex] valueForKey:@"GPA"] ];
+        
+        [ self.gpaTextBox setValue:gpa forKey:@"text"];
+        
+    }
+    
 }
 
 - (IBAction)addStudentDetailsButtonHandler:(id)sender {

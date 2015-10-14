@@ -26,15 +26,18 @@
     _internationalSchoolDirectory = [[StudentDirectory alloc] init];
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:nil action:nil];
+   
     
     _studentDetailsTableView.estimatedRowHeight = 44.0;
     _studentDetailsTableView.rowHeight = UITableViewAutomaticDimension;
-    
+
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     
     [ _studentDetailsTableView reloadData];
+    
+    //[ self.someValue setValue:@"89" forKey:@"stringValue"];
 }
 
 
@@ -43,9 +46,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Table UI functions
+
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *studentTableCellIdentifier = @"StudentTableCell";
+    static NSString *studentTableCellIdentifier = @"protoCel";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:studentTableCellIdentifier];
     
@@ -69,15 +74,25 @@
     
 }
 
+#pragma mark - Other UI functions
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
-    if([segue.identifier isEqualToString:@"addStudentSegue"]){
+    AddStudentViewController *targetController = (AddStudentViewController *)segue.destinationViewController;
+    targetController.temporaryDirectory = self.internationalSchoolDirectory;
+    
+    if ( [segue.identifier isEqualToString:@"editStudentSegue"] ){
         
-        AddStudentViewController *controller = (AddStudentViewController *)segue.destinationViewController;
-        controller.temporaryDirectory = self.internationalSchoolDirectory;
+        NSIndexPath *indexPath = [ self.studentDetailsTableView indexPathForSelectedRow ];
+        targetController.directoryIndex = indexPath.row;
+        
     }
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    
+    NSLog(@"Some value changed");
+    
+}
 
 @end

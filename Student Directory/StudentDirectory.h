@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface StudentDirectory : NSObject
-
 /**
  *  An array that contains the information about the students. Each individual student's information is stores in the form of a dictionary item.
  */
