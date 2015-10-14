@@ -57,7 +57,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="stidentDetailsTableView" destination="INi-NE-97F" id="abi-Ha-a5c"/>
+                        <outlet property="studentDetailsTableView" destination="INi-NE-97F" id="zsq-hR-r38"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

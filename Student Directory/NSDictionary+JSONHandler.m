@@ -23,10 +23,10 @@
         
         if ( [[ self valueForKey:dictionaryKeys[ i-1 ] ] isKindOfClass: [ NSNumber class] ]) {
             
-            [ JSONString appendFormat: @"%@, ", [ self valueForKey:dictionaryKeys[ i-1 ] ] ];
+            [ JSONString appendFormat: @"%@, ", [ self valueForKey:[ dictionaryKeys[ i-1 ] stringValue ] ] ];
         } else {
             
-            [ JSONString appendFormat: @"\"%@\", ", [ self valueForKey:dictionaryKeys[ i-1 ] ] ];
+            [ JSONString appendFormat: @"\"%@\", ", [ self valueForKey:[ dictionaryKeys[ i-1 ] stringValue ] ] ];
         }
         
     }

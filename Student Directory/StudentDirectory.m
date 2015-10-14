@@ -9,7 +9,7 @@
 #import "StudentDirectory.h"
 #import "NSDictionary+JSONHandler.h"
 
-#define JSON_OUTPUT
+//#define JSON_OUTPUT
 
 @implementation StudentDirectory
 
@@ -18,9 +18,11 @@
     self = [super init];
     if (self) {
         
+        _studentList = [[ NSMutableArray alloc] init ];
+        
         //Create dictionary items of students
         
-        NSDictionary *student = [[ NSDictionary alloc] init ];
+        NSMutableDictionary *student = [[ NSMutableDictionary alloc] init ];
         
         [ student setValue:@"Rahul Srivastava" forKey:@"Name" ];
         [ student setValue:@"14/02/1991" forKey:@"DoB" ];
@@ -28,17 +30,21 @@
         
         [ _studentList addObject:student ];
         
-        [ student setValue:@"Barbara Gordon" forKey:@"Name" ];
-        [ student setValue:@"17/04/1987" forKey:@"DoB" ];
-        [ student setValue:[ NSNumber numberWithFloat: 8.53] forKey:@"GPA" ];
+        NSMutableDictionary *student2 = [[ NSMutableDictionary alloc] init ];
         
-        [ _studentList addObject:student ];
+        [ student2 setValue:@"Barbara Gordon" forKey:@"Name" ];
+        [ student2 setValue:@"17/04/1987" forKey:@"DoB" ];
+        [ student2 setValue:[ NSNumber numberWithFloat: 8.53] forKey:@"GPA" ];
         
-        [ student setValue:@"Pandit Gangadhar Vidyadhar Mayadhar Omkarnath Shastri" forKey:@"Name" ];
-        [ student setValue:@"22/09/1997" forKey:@"DoB" ];
-        [ student setValue:[ NSNumber numberWithFloat:10 ] forKey:@"GPA" ];
+        [ _studentList addObject:student2 ];
         
-        [ _studentList addObject:student ];
+        NSMutableDictionary *student3 = [[ NSMutableDictionary alloc] init ];
+        
+        [ student3 setValue:@"Pandit Gangadhar Vidyadhar Mayadhar Omkarnath Shastri" forKey:@"Name" ];
+        [ student3 setValue:@"22/09/1997" forKey:@"DoB" ];
+        [ student3 setValue:[ NSNumber numberWithFloat:10 ] forKey:@"GPA" ];
+        
+        [ _studentList addObject:student3 ];
     }
     
     return self;
@@ -62,7 +68,7 @@
 
 -(void)addToListStudent: (NSString*) name DoB: (NSString*) DoB GPA: (NSNumber*) GPA{
     
-    NSDictionary *student = [[ NSDictionary alloc] init ];
+    NSMutableDictionary *student = [[ NSMutableDictionary alloc] init ];
     
     [ student setValue:name forKey:@"Name" ];
     [ student setValue:DoB forKey:@"DoB" ];

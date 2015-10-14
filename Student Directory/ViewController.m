@@ -29,8 +29,12 @@
     
     _studentDetailsTableView.estimatedRowHeight = 44.0;
     _studentDetailsTableView.rowHeight = UITableViewAutomaticDimension;
-
     
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    
+    [ _studentDetailsTableView reloadData];
 }
 
 
@@ -49,7 +53,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:studentTableCellIdentifier];
     }
     
-    NSDictionary *studentDetails = _internationalSchoolDirectory.studentList[ indexPath.row];
+    NSDictionary *studentDetails = _internationalSchoolDirectory.studentList[ indexPath.row ];
     
     cell.textLabel.text = [ studentDetails valueForKey:@"Name" ];
     cell.textLabel.numberOfLines = 0;
@@ -59,7 +63,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return [ _internationalSchoolDirectory.studentList count ];
+    NSInteger count = [ _internationalSchoolDirectory.studentList count ];
+    
+    return count;
     
 }
 
