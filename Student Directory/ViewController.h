@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "StudentDirectory.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property StudentDirectory* internationalSchoolDirectory;
+@property (weak, nonatomic) IBOutlet UITableView *studentDetailsTableView;
 
 @end
 

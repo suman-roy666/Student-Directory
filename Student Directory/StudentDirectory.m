@@ -20,46 +20,25 @@
         
         //Create dictionary items of students
         
-        NSDictionary *student1 = @{
-                                   @"Name" : @"Rahul Srivastava",
-                                   @"DoB"  : @"14/02/1991",
-                                   @"GPA"  : [ NSNumber numberWithFloat:6.43 ]
-                                   };
+        NSDictionary *student = [[ NSDictionary alloc] init ];
         
-        NSDictionary *student2 = @{
-                                   @"Name" : @"Barbara Gordon",
-                                   @"DoB"  : @"17/04/1987",
-                                   @"GPA"  : [ NSNumber numberWithFloat:8.53 ]
-                                   };
+        [ student setValue:@"Rahul Srivastava" forKey:@"Name" ];
+        [ student setValue:@"14/02/1991" forKey:@"DoB" ];
+        [ student setValue:[ NSNumber numberWithFloat: 6.43 ] forKey:@"GPA" ];
         
-        NSDictionary *student3 = @{
-                                   @"Name" : @"Pandit Gangadhar Vidyadhar Mayadhar Omkarnath Shastri",
-                                   @"DoB"  : @"22/09/1997",
-                                   @"GPA"  : [ NSNumber numberWithFloat:10.00 ]
-                                   };
+        [ _studentList addObject:student ];
         
-        NSDictionary *student4 = @{
-                                   @"Name" : @"Chandi Gupta",
-                                   @"DoB"  : @"28/02/1993",
-                                   @"GPA"  : [ NSNumber numberWithFloat:7.58]
-                                   };
+        [ student setValue:@"Barbara Gordon" forKey:@"Name" ];
+        [ student setValue:@"17/04/1987" forKey:@"DoB" ];
+        [ student setValue:[ NSNumber numberWithFloat: 8.53] forKey:@"GPA" ];
         
-        NSDictionary *student5 = @{
-                                   @"Name" : @"Tim Drake",
-                                   @"DoB"  : @"16/08/1989",
-                                   @"GPA"  : [ NSNumber numberWithFloat:7.00 ]
-                                   };
+        [ _studentList addObject:student ];
         
-        _studentList = [ NSMutableArray arrayWithArray: @[
-                         student1,
-                         student2,
-                         student3,
-                         student4,
-                         student5
-                         ] ];
+        [ student setValue:@"Pandit Gangadhar Vidyadhar Mayadhar Omkarnath Shastri" forKey:@"Name" ];
+        [ student setValue:@"22/09/1997" forKey:@"DoB" ];
+        [ student setValue:[ NSNumber numberWithFloat:10 ] forKey:@"GPA" ];
         
-        [ student1 convertToJSON];
-        
+        [ _studentList addObject:student ];
     }
     
     return self;
@@ -83,11 +62,11 @@
 
 -(void)addToListStudent: (NSString*) name DoB: (NSString*) DoB GPA: (NSNumber*) GPA{
     
-    NSDictionary *student = @{
-                               @"Name" : name,
-                               @"DoB"  : DoB,
-                               @"GPA"  : GPA
-                               };
+    NSDictionary *student = [[ NSDictionary alloc] init ];
+    
+    [ student setValue:name forKey:@"Name" ];
+    [ student setValue:DoB forKey:@"DoB" ];
+    [ student setValue:GPA forKey:@"GPA" ];
     
     [ _studentList addObject:student ];
 }

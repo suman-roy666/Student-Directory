@@ -28,9 +28,9 @@
 - (IBAction)addStudentDetailsButtonHandler:(id)sender {
     
     NSString *tempName, *tempDoB, *tempgpa;
-    NSNumberFormatter *gpaConverter = [[NSNumberFormatter alloc] init ];
+    NSNumberFormatter *gpaConverterFormat = [[NSNumberFormatter alloc] init ];
     
-    gpaConverter.numberStyle = NSNumberFormatterDecimalStyle;
+    gpaConverterFormat.numberStyle = NSNumberFormatterDecimalStyle;
     
     tempName = [[ self.studentNameTextBox text] stringByTrimmingCharactersInSet:[ NSCharacterSet whitespaceCharacterSet ]];
     tempDoB = [[ self.dobTextBox text] stringByTrimmingCharactersInSet:[ NSCharacterSet whitespaceCharacterSet] ];
@@ -53,10 +53,11 @@
         
     } else {
         
-        [ self.temporaryDirectory addToListStudent:tempName DoB:tempDoB GPA:[ gpaConverter numberFromString:tempgpa ] ];
+        [ self.temporaryDirectory addToListStudent:tempName DoB:tempDoB GPA:[ gpaConverterFormat numberFromString:tempgpa ] ];
         
         [ self.navigationController popViewControllerAnimated:YES ];
     }
+
 }
 
 
@@ -104,7 +105,7 @@
     
 }
 
-#pragma mark - GPA text field constaint finctions
+#pragma mark - Additional Functions for validation and errors
 
 - (BOOL)validateInputWithString:(NSString *)aString withPattern:(NSString*) pattern
 {
@@ -112,7 +113,6 @@
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:&error];
-    NSAssert(regex, @"Unable to create regular expression");
     
     if (error) {
         NSLog(@"error %@", error);
