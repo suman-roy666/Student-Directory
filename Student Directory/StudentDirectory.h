@@ -23,7 +23,7 @@
 +(void)displayStudent:(NSDictionary*) student;
 
 /**
- *  Used to add elements to the studentList Mutable Array. This function is the only way to add elements to the array.
+ *  Used to add elements to the studentList Mutable Array.
  *
  *  @param name The name of the student to be added
  *  @param DoB  The studednt's date of birth in DD/MM/YYYY in a NSString
@@ -31,5 +31,15 @@
  */
 
 -(void)addToListStudent: (NSString*) name DoB: (NSString*) DoB GPA: (NSNumber*) GPA;
+
+/**
+ *  Used to edit elements in the studentList Mutable Array.
+ *
+ *  @param name The name of the student to be added
+ *  @param DoB  The studednt's date of birth in DD/MM/YYYY in a NSString
+ *  @param GPA  The student's GPA as a NSNumber
+ */
+
+-(void)addToListStudent:(NSString *)name DoB:(NSString *)DoB GPA:(NSNumber *)GPA atIndex: (NSInteger) index;
 
 @end

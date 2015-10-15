@@ -9,11 +9,20 @@
 #import "AddStudentViewController.h"
 #import "ViewController.h"
 
+typedef enum {
+    ADD,
+    SAVE
+} Mode;
+
+Mode currentMode;
+
 @implementation AddStudentViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    currentMode = ADD;
     
     _datePickerDone.hidden = TRUE;
     _datePicker.hidden = TRUE;
@@ -28,11 +37,15 @@
     if ( _directoryIndex != nil  ) {
         
         [ self.studentNameTextBox setValue:[ _temporaryDirectory.studentList[_directoryIndex] valueForKey:@"Name"] forKey:@"text"];
-        //[ self.dobTextBox setValue:[ _temporaryDirectory.studentList[_directoryIndex] valueForKey:@"DoB"] forKey:@"text"];
+        [ self.dobTextBox setValue:[ _temporaryDirectory.studentList[_directoryIndex] valueForKey:@"DoB"] forKey:@"text"];
         
         NSString *gpa= [ NSString stringWithFormat:@"%@", [ _temporaryDirectory.studentList[_directoryIndex] valueForKey:@"GPA"] ];
         
         [ self.gpaTextBox setValue:gpa forKey:@"text"];
+        
+        [ _addButton setTitle:@"Save" forState:UIControlStateNormal ];
+        
+        currentMode = SAVE;
         
     }
     
@@ -40,37 +53,56 @@
 
 - (IBAction)addStudentDetailsButtonHandler:(id)sender {
     
+    
+    
+    
+    
     NSString *tempName, *tempDoB, *tempgpa;
     NSNumberFormatter *gpaConverterFormat = [[NSNumberFormatter alloc] init ];
     
     gpaConverterFormat.numberStyle = NSNumberFormatterDecimalStyle;
     
     tempName = [[ self.studentNameTextBox text] stringByTrimmingCharactersInSet:[ NSCharacterSet whitespaceCharacterSet ]];
-    tempDoB = [[ self.dobTextBox text] stringByTrimmingCharactersInSet:[ NSCharacterSet whitespaceCharacterSet] ];
+    
     tempgpa = [  [self.gpaTextBox text ] stringByTrimmingCharactersInSet:[ NSCharacterSet whitespaceCharacterSet]];
     
-    BOOL isAnyTextFieldEmpty = (
-                                ( [ tempName isEqualToString:@"" ] || tempName == nil )  ||
-                                ( [ tempDoB isEqualToString:@"" ] || tempDoB == nil ) ||
-                                ( [ tempgpa isEqualToString:@"" ] || tempgpa == nil )
+    tempDoB = [[ self.dobTextBox text] stringByTrimmingCharactersInSet:[ NSCharacterSet whitespaceCharacterSet] ];
     
-    );
-    
-    if ( isAnyTextFieldEmpty ) {
+    if ( currentMode == ADD )
         
-        [ self showErrorAlertWithMessage: @"All field are mandatory" ];
+    {
         
-    } else if ( ![ self validateInputWithString:tempgpa withPattern:@"(^[0-9][.][0-9][0-9]?)$|10[.]?[0]{0,2}$"] ){
         
-        [ self showErrorAlertWithMessage: @"GPA format incorrect" ];
+        BOOL isAnyTextFieldEmpty = (
+                                    ( [ tempName isEqualToString:@"" ] || tempName == nil )  ||
+                                    ( [ tempDoB isEqualToString:@"" ] || tempDoB == nil ) ||
+                                    ( [ tempgpa isEqualToString:@"" ] || tempgpa == nil )
+                                    
+                                    );
         
-    } else {
+        if ( isAnyTextFieldEmpty ) {
+            
+            [ self showErrorAlertWithMessage: @"All field are mandatory" ];
+            
+        } else if ( ![ self validateInputWithString:tempgpa withPattern:@"(^[0-9][.][0-9][0-9]?)$|10[.]?[0]{0,2}$"] ){
+            
+            [ self showErrorAlertWithMessage: @"GPA format incorrect" ];
+            
+        } else {
+            
+            [ self.temporaryDirectory addToListStudent:tempName DoB:tempDoB GPA:[ gpaConverterFormat numberFromString:tempgpa ] ];
+            
+            
+        }
         
-        [ self.temporaryDirectory addToListStudent:tempName DoB:tempDoB GPA:[ gpaConverterFormat numberFromString:tempgpa ] ];
+    } else if (currentMode == SAVE ){
         
-        [ self.navigationController popViewControllerAnimated:YES ];
+        [ self.temporaryDirectory addToListStudent:tempName DoB:tempDoB GPA:[ gpaConverterFormat numberFromString:tempgpa ] atIndex: self.directoryIndex ];
+        
     }
-
+    
+    [ self.navigationController popViewControllerAnimated:YES ];
+    
 }
 
 
@@ -103,7 +135,7 @@
     [ dobFormatter setDateFormat:@"dd/MM/yyyy"];
     
     _dobTextBox.text = [ NSString stringWithFormat:@"%@", [ dobFormatter stringFromDate:_datePicker.date]];
-
+    
 }
 
 

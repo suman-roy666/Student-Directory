@@ -353,6 +353,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add Student Form" id="CjJ-vq-us6"/>
                     <connections>
+                        <outlet property="addButton" destination="c3g-2Z-yjo" id="2FY-Iv-N2y"/>
                         <outlet property="datePicker" destination="qWS-5m-blE" id="yuH-cU-zkC"/>
                         <outlet property="datePickerDone" destination="nXW-fZ-zvg" id="d5F-rI-2do"/>
                         <outlet property="dobTextBox" destination="lDP-PL-35o" id="IeY-ZY-amE"/>

@@ -78,4 +78,16 @@
 }
 
 
+-(void)addToListStudent:(NSString *)name DoB:(NSString *)DoB GPA:(NSNumber *) GPA atIndex: (NSInteger) index{
+    
+    NSMutableDictionary *student = [ _studentList objectAtIndex:index ];
+    
+    [ student setValue:name forKey:@"Name" ];
+    [ student setValue:DoB forKey:@"DoB" ];
+    [ student setValue:GPA forKey:@"GPA" ];
+    
+    //[ _studentList addObject:student ];
+    
+}
+
 @end

@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *gpaTextBox;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UIToolbar *datePickerDone;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
 
 @property StudentDirectory *temporaryDirectory;
 @property NSInteger directoryIndex;
