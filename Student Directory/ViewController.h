@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "StudentDirectory.h"
 
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @property StudentDirectory* internationalSchoolDirectory;
 @property (weak, nonatomic) IBOutlet UITableView *studentDetailsTableView;
 @property (weak, nonatomic) IBOutlet UITextField *searchNameField;
-@property NSNumber *someValue;
 
+@property NSString *somevalue;
 @end
 

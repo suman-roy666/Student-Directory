@@ -25,7 +25,7 @@ typedef enum{
     
     int directoryIndex;
     Mode displayMode;
-    NSMutableArray *filteredDirectory;
+    NSArray *filteredDirectory;
 }
 
 - (void)viewDidLoad {
@@ -41,18 +41,14 @@ typedef enum{
     
     _studentDetailsTableView.estimatedRowHeight = 44.0;
     _studentDetailsTableView.rowHeight = UITableViewAutomaticDimension;
-    
-    NSPredicate *test = [ NSPredicate predicateWithFormat:@"(Name LIKE[cd] $letter) "];
-    
-    NSLog(@"PREDICATE: %@", [ _internationalSchoolDirectory.studentList filteredArrayUsingPredicate:[ test predicateWithSubstitutionVariables:@{@"letter": @"*Rahul*"}] ] );
-    
+   
+    [ self addObserver:self forKeyPath:@"somevalue" options:0 context:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     
     [ _studentDetailsTableView reloadData];
     
-    //[ self.someValue setValue:@"89" forKey:@"stringValue"];
 }
 
 
@@ -101,6 +97,16 @@ typedef enum{
     
 }
 
+-(BOOL)textFieldShouldClear:(UITextField *)textField{
+    
+    if ( ![[ self.searchNameField.text stringByTrimmingCharactersInSet: [ NSCharacterSet whitespaceCharacterSet ] ]  isEqual: @""]   ) {
+        
+        self.somevalue = self.searchNameField.text;
+    }
+
+    return YES;
+}
+
 #pragma mark - Other functions
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -133,6 +139,9 @@ typedef enum{
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     
     NSLog(@"Some value changed");
+    
+    displayMode = SHOW;
+    [ self.studentDetailsTableView reloadData];
     
 }
 
