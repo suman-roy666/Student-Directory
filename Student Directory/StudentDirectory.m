@@ -45,6 +45,22 @@
         [ student3 setValue:[ NSNumber numberWithFloat:10 ] forKey:@"GPA" ];
         
         [ _studentList addObject:student3 ];
+        
+        NSMutableDictionary *student4 = [[ NSMutableDictionary alloc] init ];
+        
+        [ student4 setValue:@"Jaqual Haggar" forKey:@"Name" ];
+        [ student4 setValue:@"23/06/1997" forKey:@"DoB" ];
+        [ student4 setValue:[ NSNumber numberWithFloat:5.45 ] forKey:@"GPA" ];
+        
+        [ _studentList addObject:student4 ];
+        
+        NSMutableDictionary *student5 = [[ NSMutableDictionary alloc] init ];
+        
+        [ student5 setValue:@"Reverand Lovejoy" forKey:@"Name" ];
+        [ student5 setValue:@"22/09/1987" forKey:@"DoB" ];
+        [ student5 setValue:[ NSNumber numberWithFloat:3.76 ] forKey:@"GPA" ];
+        
+        [ _studentList addObject:student5 ];
     }
     
     return self;
